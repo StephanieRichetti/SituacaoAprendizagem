@@ -1,0 +1,30 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<ul id="menu_principal" class="nav nav-pills">
+		
+	  	<li><h:link outcome="/index" value="Home" /></li>
+	  	<li><h:link outcome="/quemsomos" value="Quem Somos" /></li>
+	  	<li><h:link outcome="/contatos" value="Contato" /></li>
+	  	<li><h:link outcome="/localizacao" value="Localização" /></li>
+ 		
+		
+		<ul id="menu_administrador" class="nav nav-pills navbar-right">
+			<li class="dropdown">
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+		    		Admin <span class="caret"></span>
+		   		 </a>
+			    <ul class="dropdown-menu" role="menu">
+			      <li><h:link outcome="/admin/formcadclientes" value="Cadastrar Cliente" /></li>
+			      <li><h:link outcome="/admin/listagemClientes" value="Listar Clientes" /></li>
+			      
+			    </ul>
+	  		</li>
+	  	</ul>	
+	</ul>
+
+<h:outputScript library="js" name="menu.js"></h:outputScript>
+
+</ui:composition>	
