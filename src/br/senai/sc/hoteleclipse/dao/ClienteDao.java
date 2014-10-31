@@ -8,7 +8,6 @@ import javax.persistence.Query;
 import br.senai.sc.hoteleclipse.entity.Cliente;
 import br.senai.sc.hoteleclipse.util.Util;
 
-
 public class ClienteDao {
 
 	private EntityManager entityManager;
@@ -16,19 +15,27 @@ public class ClienteDao {
 	public ClienteDao() {
 		entityManager = Util.getEntityManager();
 	}
-	
+
 	public ClienteDao(EntityManager entityManager) {
-			this.entityManager = entityManager;
+		this.entityManager = entityManager;
 	}
 
 	public List<Cliente> listar() {
-		Query query = entityManager
-				.createQuery("From Canal", Cliente.class);
+		Query query = entityManager.createQuery("From Canal", Cliente.class);
 		return query.getResultList();
 	}
 
-	public void salvar(Cliente cliente) {
-		entityManager.merge(cliente);
+	public Cliente salvar(Cliente cliente) {
+		try {
+			if (cliente.getID() == null) {
+				entityManager.persist(cliente);
+			} else {
+				entityManager.merge(cliente);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cliente;
 	}
 
 	public Cliente buscarPorId(Long id) {
@@ -41,8 +48,3 @@ public class ClienteDao {
 	}
 
 }
-
-
-
-	
-

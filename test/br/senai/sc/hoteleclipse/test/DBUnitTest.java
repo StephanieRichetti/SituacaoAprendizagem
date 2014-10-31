@@ -1,7 +1,6 @@
 package br.senai.sc.hoteleclipse.test;
 
 import java.io.File;
-import java.io.FileInputStream;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,11 +18,9 @@ import br.senai.sc.hoteleclipse.util.Util;
 
 public class DBUnitTest extends DBTestCase{
 	
-	EntityManager entityManager;
-	EntityManagerFactory entityManagerFactory;
-	ClienteDao dao;
-	
-	
+	private EntityManager entityManager;
+	private EntityManagerFactory entityManagerFactory;
+	private ClienteDao dao;
 	
 	public DBUnitTest(){
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
@@ -43,8 +40,8 @@ public class DBUnitTest extends DBTestCase{
 	}
 	
 	public void begin(){
-		Util.initFactory();
-		entityManager = Util.getEntityManager();
+		Util.iniciarPersistenceUnit();
+		entityManager = Util.createEntityManager();
 		entityManager.getTransaction().begin();
 		dao = new ClienteDao(entityManager);		
 	}
@@ -52,7 +49,14 @@ public class DBUnitTest extends DBTestCase{
 	public void close(){
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		entityManagerFactory.close();
+		if (entityManagerFactory != null) {
+			entityManagerFactory.close();
+		}	
+		dao = null;
+	}
+
+	public ClienteDao getDao() {
+		return dao;
 	}
 	
 }
