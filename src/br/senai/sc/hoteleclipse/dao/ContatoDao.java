@@ -17,6 +17,10 @@ public class ContatoDao {
 	public ContatoDao() {
 		entityManager = Util.getEntityManager();
 	}
+	
+	public ContatoDao(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
 	public List<Reserva> listar() {
 		Query query = entityManager.createQuery("From Contato", Contato.class);

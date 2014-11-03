@@ -16,6 +16,10 @@ public class ReservaDao {
 		entityManager = Util.getEntityManager();
 	}
 
+	public ReservaDao(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
 	public List<Reserva> listar() {
 		Query query = entityManager.createQuery("From Reserva", Reserva.class);
 		return query.getResultList();

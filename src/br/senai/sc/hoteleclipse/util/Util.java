@@ -13,9 +13,9 @@ public class Util {
 	private static EntityManagerFactory entityManagerFactory;
 
 	public static void iniciarPersistenceUnit() {
-		if (entityManagerFactory == null)
-			entityManagerFactory = Persistence
-					.createEntityManagerFactory("hoteleclipsesa_pu");
+		if (entityManagerFactory == null){
+			entityManagerFactory = Persistence.createEntityManagerFactory("hoteleclipsesa_pu");
+		}
 	}
 	
 	public static EntityManager createEntityManager() {
@@ -23,7 +23,9 @@ public class Util {
 	}
 
 	public static void fecharPersistenceUnit() {
-		entityManagerFactory.close();		
+		if (entityManagerFactory != null) {
+			entityManagerFactory.close();		
+		}
 	}
 	
 	public static EntityManager getEntityManager(){
