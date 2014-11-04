@@ -22,7 +22,9 @@ public class ContatoDao {
 		this.entityManager = entityManager;
 	}
 
-	public List<Reserva> listar() {
+	
+
+	public List<Contato> listar() {
 		Query query = entityManager.createQuery("From Contato", Contato.class);
 		return query.getResultList();
 	}

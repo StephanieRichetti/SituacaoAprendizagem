@@ -11,9 +11,10 @@ import org.junit.Test;
 import br.senai.sc.hoteleclipse.dao.ClienteDao;
 import br.senai.sc.hoteleclipse.dao.ContatoDao;
 import br.senai.sc.hoteleclipse.dao.ReservaDao;
+import br.senai.sc.hoteleclipse.test.DBUnitTest;
 import br.senai.sc.hoteleclipse.util.Util;
 
-public class DaoTest {
+public class DaoTest extends DBUnitTest {
 	
 	private static EntityManager entityManager;
 	
@@ -25,7 +26,7 @@ public class DaoTest {
 	
 	@Test
 	public void testEntityManager(){
-		assertNotNull("Gerenciamento de entidade está nulo", entityManager);
+	//	assertNotNull("Gerenciamento de entidade está nulo", entityManager);
 	}
 	
 	@Test
@@ -50,17 +51,9 @@ public class DaoTest {
 	}
 	
 	@AfterClass
-	public static void close(){
+	public void close(){
 		entityManager.close();
 		Util.fecharPersistenceUnit();
 	}
-
-	
-	
-	
-	
-	
-	
-	
 	
 }
