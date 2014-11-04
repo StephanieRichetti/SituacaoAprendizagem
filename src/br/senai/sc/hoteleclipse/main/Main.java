@@ -14,7 +14,7 @@ import br.senai.sc.hoteleclipse.util.Util;
 public class Main {
 	
 	public static EntityManagerFactory entityManagerFactory = Persistence
-			.createEntityManagerFactory("embelezze_pu");
+			.createEntityManagerFactory("hoteleclipsesa_pu");
 	
 	public static EntityManager entityManager = entityManagerFactory.createEntityManager();
 	
