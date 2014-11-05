@@ -5,39 +5,61 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
+	<link rel="stylesheet" href="#{resource['css/style.css']}" />
 
 <ui:composition template="WEB-INF/templates/base.xhtml">
-	<ui:define name="title">Hotel Eclipse</ui:define>
+	<ui:define name="page-title">
+		<h1>Contatos</h1>
+	</ui:define>
 	<ui:define name="content">
-
-		<div class="corpo">
-			<div class="container_contato">
-				<div class="col-md-7">
-					<form role="form">
-						<div class="form-group">
-						
-						<h:outputLabel value="Nome:" />
-							<h:inputText value="#{contatoMb.nome}" type="text" class="form-control"
-								placeholder="Digite seu nome" />
-						</div>
-						<div class="form-group">						
-							<h:outputLabel value="Email:" />
-							<h:inputText value="#{contatoMb.email}" type="email" class="form-control"
-								 placeholder="Digite seu e-mail" />					 							
-						</div>
-						<div class="form-group">
-							<h:outputLabel value="Mensagem:" />
-							<h:inputTextarea value="#{contatoMb.mensagem}" type="text" class="form-control"
-							 rows="8"	placeholder="Digite sua mensagem" />
-						</div>
-						<h:commandButton action="#{contatoMb.enviar}" styleClass="btn btn-default" value="Enviar" />			 
-					 
-					</form>
-				</div>	
-				<div class="col-md-5">
+	
+		<div class="panel panel-default col-md-25">
+			<div class="panel-body">
+				<div class="row">
+ 				 <div class="col-md-7">
+			
+				<h:form role="form">
+					<div class="form-group">
+						<h:outputLabel value="Nome" /> 
+						<h:inputText value="#{contatoMb.nome}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="E-mail" /> 
+						<h:inputText value="#{contatoMb.email}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Senha" /> 
+						<h:inputSecret value="#{contatoMb.senha}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Área" />
+						<h:selectOneMenu value="#{contatoMb.area}" styleClass="form-control" style="width:23%;">
+							<f:selectItem itemValue="" itemLabel=" -- " />
+							<f:selectItem itemValue="1" itemLabel="Reclamações" />
+							<f:selectItem itemValue="2" itemLabel="Suguestões" />
+							<f:selectItem itemValue="3" itemLabel="Outros" />
+						</h:selectOneMenu>
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Mensagem" />
+						<h:inputTextarea value="#{contatoMb.mensagem}" styleClass="form-control" />
+					</div>
+					<div class="checkbox">
+						<label>
+							<h:selectBooleanCheckbox value="#{contatoMb.news}" /> Receber news
+						</label>
+					</div>
+					<h:commandButton action="#{contatoMb.enviar}" styleClass="btn btn-default" value="Enviar" />
+				</h:form>
+			</div>
+			
+			<div class="imgcontato">
+				<div class="col-md-4">
 					<br/><img src="#{resource['img/contato.jpg']}" alt="Entre em contato conosco" />					
 				</div>
 			</div>
+			</div>
+		</div>
 		</div>
 	</ui:define>
 </ui:composition>

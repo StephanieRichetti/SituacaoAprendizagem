@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-
+<link rel="stylesheet" href="#{resource['css/style.css']}" />
 
 <ui:composition template="WEB-INF/templates/base.xhtml">
 	<ui:define name="title">Hotel Eclipse</ui:define>
@@ -13,26 +13,10 @@
 
 		<div class="panel panel-default col-md-25">
 			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-3 col-md-pull-20">
-						<br />  O Hotel Eclipse está a poucos minutos da praia do
-						Flamengo e de vários pontos turísticos do Rio de Janeiro, como os
-						Arcos da Lapa. <br /> A infraestrutura do hotel inclui piscina,
-						sauna, recreação, restaurante e internet wi-fi . <br /> Os
-						apartamentos contam com TV LCD, ar-condicionado e frigobar. <br />
-						Os hóspedes dispõem de conexão wi-fi gratuita em todo hotel. <br />
-						A tradicional gastronomia brasileira e pratos internacionais podem
-						ser degustados no restaurante Pier XV, anexo ao lobby. <br />
-						Oferecemos total dedicação no atendimento porque para nós o
-						essencial é a sua satisfação. <br />
-					</div>
 
-					<div class="col-md-9 col-md-pull-20">
-						<br/><br/><img class="planodefundo" src="#{resource['img/fundo.jpg']}" />
-					</div>
-				</div>
+
+				<img class="planodefundo" src="#{resource['img/promocao.jpg']}" />
 			</div>
-
 		</div>
 
 		<div class="panel panel-default col-md-20">
