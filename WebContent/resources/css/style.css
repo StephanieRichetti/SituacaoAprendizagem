@@ -23,7 +23,6 @@ body {
 	margin-bottom: 15px; 		
 }
 
-
 .corpo{
 	margin-top:30px;
 }
@@ -109,8 +108,9 @@ body {
 	width: 200px;
 }
 
-.contato{
-    margin-left:130px;
+.imgcontato{
+	width: 125%;
+	height: 400px;
 }
 
 .container img {
@@ -131,5 +131,10 @@ body {
 .quemsomos{
 	width: 450px;
 	height: 200px;
+}
 
+
+.logo{
+	width: 1140px;
+	height: 400px;
 }

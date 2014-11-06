@@ -12,56 +12,58 @@ import br.senai.sc.hoteleclipse.entity.Contato;
 
 @ManagedBean
 public class ContatoMb {
-
-	private Contato contato;
-	private ContatoDao dao;
-	private EntityManager entityManager;
-	private List<Contato> listaContato;
 	private String nome;
 	private String email;
+	private String senha;
+	private Boolean news;
+	private Integer area;
 	private String mensagem;
-
+	
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public Boolean getNews() {
+		return news;
+	}
+	public void setNews(Boolean news) {
+		this.news = news;
+	}
+	public Integer getArea() {
+		return area;
+	}
+	public void setArea(Integer area) {
+		this.area = area;
+	}
 	public String getMensagem() {
 		return mensagem;
 	}
-
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
-
 	
-
-	public String salvar() {
-		entityManager.merge(contato);
-		return "listagemContato";
+	public void enviar(){
+		System.out.println("Nome: " + nome);
+		System.out.println("Email: " + email);
+		System.out.println("Senha: " + senha);
+		System.out.println("Área: " + area);
+		System.out.println("Mensagem: " + mensagem);
+		System.out.println("News: " + news);
 	}
-
-	public String editar(Long ID) {
-		contato = entityManager.find(Contato.class, ID);
-		return "formcadContato";
-	}
-
-	public String excluir(Long ID) {
-		Contato contato = entityManager.getReference(Contato.class, ID);
-		entityManager.remove(contato);
-		listaContato = null;
-		return "listagemContato";
-	}
-
 }
+
+
