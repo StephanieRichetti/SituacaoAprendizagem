@@ -33,7 +33,7 @@ public class ReservaDao {
 		return entityManager.find(Reserva.class, id);
 	}
 
-	public void excluir(Long id) {
+	public void excluirReservaPorId(Long id) {
 		Reserva cliente = entityManager.getReference(Reserva.class, id);
 		entityManager.remove(cliente);
 	}

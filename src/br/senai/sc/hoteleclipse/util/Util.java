@@ -38,7 +38,19 @@ public class Util {
 	public static void setEntityManager(ServletRequest request,
 			EntityManager entityManager) {
 		request.setAttribute(ENTITY_MANAGER, entityManager);
-		
+	}
+	
+	
+		public static void initFactory() {
+			if(entityManagerFactory != null) return;
+			entityManagerFactory = Persistence
+			.createEntityManagerFactory("hoteleclipsesa_pu");
+
+
+			}
+
+			public static void closeFactory() {
+			entityManagerFactory.close();
 	}
 }
 

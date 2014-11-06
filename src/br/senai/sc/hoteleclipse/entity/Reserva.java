@@ -75,9 +75,8 @@ public class Reserva {
 		return quantidadePessoas;
 	}
 
-	public void setQuantidadePessoas(Integer quantidadePessoas) {
-		this.quantidadePessoas = quantidadePessoas;
+	
 	}
 
 
-}
+
