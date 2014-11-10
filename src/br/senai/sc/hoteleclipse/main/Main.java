@@ -26,14 +26,28 @@ public class Main {
 				
 		entityManager.getTransaction().begin();
 		entityManager.getTransaction().commit();
-		//atualizarCliente();
-		//listarClientes();
-	//	deletarCliente();
-//		listarClientes();
+		atualizarCliente();
+		listarClientes();
+		excluirCliente(0);
 		entityManager.close();
 		entityManagerFactory.close();
 	}
 
+	private static void excluirCliente(long id) {
+		Cliente cliente = entityManager.getReference(Cliente.class, id);
+		entityManager.remove(cliente);
+	}
+
+	private static List <Cliente> listarClientes() {
+		Query query = entityManager.createQuery("From Cliente", Cliente.class);
+		return query.getResultList();
+		
+	}
+
+	private static void atualizarCliente() {
+		entityManager.merge(cliente);
+		
+	}
 
 
 }
