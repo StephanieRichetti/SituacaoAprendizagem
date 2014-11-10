@@ -16,15 +16,7 @@ public class ReservaMb {
 	
 	private Reserva reserva;
 	private ReservaDao dao;
-	private EntityManager entityManager;
 	private List<Reserva> listaReserva;
-	private Long id;	
-	private String nomeCliente;
-	private Date chegada;
-	private Date saida;
-	private Integer quartos;
-	private Integer quantidadePessoas;
-	private String observacao;
 	
 
 	public Reserva getReserva() {
@@ -43,15 +35,10 @@ public class ReservaMb {
 		this.dao = dao;
 	}
 
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public List<Reserva> getListaReserva() {
+		if(listaReserva == null){
+			listaReserva = dao.listar();
+		}
 		return listaReserva;
 	}
 
@@ -59,76 +46,19 @@ public class ReservaMb {
 		this.listaReserva = listaReserva;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
-
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
-	}
-
-	public Date getChegada() {
-		return chegada;
-	}
-
-	public void setChegada(Date chegada) {
-		this.chegada = chegada;
-	}
-
-	public Date getSaida() {
-		return saida;
-	}
-
-	public void setSaida(Date saida) {
-		this.saida = saida;
-	}
-
-	public Integer getQuartos() {
-		return quartos;
-	}
-
-	public void setQuartos(Integer quartos) {
-		this.quartos = quartos;
-	}
-
-	public Integer getQuantidadePessoas() {
-		return quantidadePessoas;
-	}
-
-	public void setQuantidadePessoas(Integer quantidadePessoas) {
-		this.quantidadePessoas = quantidadePessoas;
-	}
-
-	public String getObservacao() {
-		return observacao;
-	}
-
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
 	
 	public String salvar() {
-		entityManager.merge(reserva);
+		dao.salvar(reserva);
 		return "listagemReserva";
 	}
 
-	public String editar(Long ID) {
-		reserva = entityManager.find(Reserva.class, ID);
-		return "formcadReserva";
+	public String editar(Long ID){
+		reserva = dao.buscarPorId(ID);
+		return "formcadreserva";
 	}
-
-	public String excluir(Long ID) {
-		Reserva reserva = entityManager.getReference(Reserva.class, ID);
-		entityManager.remove(reserva);
-		listaReserva = null;
+	
+	public String excluir(Long ID){
+	    reserva = dao.excluir(ID);
 		return "listagemReserva";
 	}
 }

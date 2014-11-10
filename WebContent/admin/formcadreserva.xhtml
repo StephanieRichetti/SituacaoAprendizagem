@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<ui:define name="content">
+
+		<div class="corpo">
+			<div class="container_cadClientes">
+				<h1>
+					Cadastro <small>Reserva</small>
+				</h1>
+				<br />
+				<div class="col-md-12">
+					<h:form role="form">
+						<div class="cadReserva">
+							<h:panelGrid rendered="#{!empty reservaMb.reserva.id}">
+								<div class="form-group">
+									<h:outputLabel value="Cód:" />
+									<h:inputText styleClass="form-control" readonly="true"
+										value="#{reservaMb.reserva.id}" />
+								</div>
+							</h:panelGrid>
+							<h:inputHidden value="#{reservaMb.reserva.id}" />
+
+							<div class="form-group">
+								<h:outputLabel value="Nome:" />
+								<h:inputText id="NomeCliente" value="#{reservaMb.reserva.nomeCliente}"
+									type="text" class="form-control" placeholder="Reserva" />
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Chegada:" />
+								<h:inputText id="Chegada" value="#{reservaMb.reserva.chegada}"
+									type="date" class="form-control" placeholder="Chegada" />
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Saída:" />
+								<h:inputText id="Saida" value="#{reservaMb.reserva.saida}"
+									type="date" class="form-control" placeholder="Saida" />
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Quartos:" />
+								<h:inputText id="Quartos" value="#{reservaMb.reserva.quartos}"
+									type="text" class="form-control" placeholder="Quartos" />
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Quantidade Pessoas:" />
+								<h:inputText id="QuantidadePessoas" value="#{reservaMb.reserva.quantidadePessoas}"
+									type="text" class="form-control" placeholder="QuantidadePessoas" />
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Observação:" />
+								<h:inputText id="Observacao" value="#{reservaMb.reserva.observacao}"
+									type="text" class="form-control" placeholder="Observacao" />
+							</div>
+
+						</div>
+						<div class="botaoSalvar">
+							<h:commandButton action="#{reservaMb.salvar}"
+								styleClass="btn btn-default" value="Salvar" />
+						</div>
+
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
+
