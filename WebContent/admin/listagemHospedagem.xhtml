@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<ui:define name="content">
+
+		<div class="corpo">
+			<div class="container_listaReserva">
+				<h1>
+					Lista <small>Venda Ingresso</small>
+				</h1>
+				<br />
+				<h:form>
+					<h:dataTable value="{hospedagemMb.listaHospedagem}" var="listarhospedagem"
+						class="table table-striped">
+					<h:column>
+						<f:facet name="heard"> Cod.</f:facet>
+						<h:outputText value="{listarhospedagem.ID}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="heard">Nome</f:facet>
+						<h:outputText value="{listarhospedagem.nomeCliente}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="heard">Categoria</f:facet>
+						<h:outputText value="{listarhospedagem.categoria}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="heard">Quantidade Pessoas</f:facet>
+						<h:outputText value="{listarhospedagem.quantidadePessoas}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="heard">Entrada</f:facet>
+						<h:outputText value="{listarhospedagem.entrada}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="heard">Saida</f:facet>
+						<h:outputText value="{listarhospedagem.saida}"/>
+					</h:column>
+					
+					
+						<f:facet name="heard"/>
+							<h:commandLink action="#{vendaIngressoMb.editar(listarhospedagem.ID)}"
+								styleClass="btn">
+								<span class="glyphicon glyphicon-pencil"/>
+								</h:commandLink>
+						
+							<h:commandLink action="#{hospedagemMb.excluir(listarhospedagem.ID)}"
+								styleClass="btn">
+								<span class="glyphicon glyphicon-pencil"/>
+								</h:commandLink>
+					</h:column>
+					
+					</h:dataTable>				
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

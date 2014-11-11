@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<ui:define name="content">
+
+		<div class="corpo">
+			<div class="container_cadClientes">
+				<h1>
+					Cadastro <small>Venda Ingresso</small>
+				</h1>
+				<br />
+				<div class="col-md-12">
+					<h:form role="form">
+						<div class="cadVendaIngresso">
+
+							<h:panelGrid rendered="#{!empty vendaIngressoMb.vendaIngresso.ID}">
+								<div class="form-group">
+									<h:outputLabel value="Cód:" />
+									<h:inputText styleClass="form-control" readonly="true"
+										value="#{vendaIngressoMb.vendaIngresso.ID}" />
+								</div>
+							</h:panelGrid>
+							<h:inputHidden value="#{vendaIngressoMb.vendaIngresso.ID}" />
+							<div class="form-group">
+								<h:outputLabel value="Nome:" />
+								<h:inputText id="NomeCliente" value="#{vendaIngressoMb.vendaIngresso.nomeCliente}"
+									type="text" class="form-control" placeholder="Nome" />
+							</div>
+						<div class="form-group">
+								<h:outputLabel value="Data Evento:" />
+								<h:inputText id="DataEvento" value="#{vendaIngressoMb.vendaIngresso.dataEvento}"
+									type="text" class="form-control" placeholder="Data Evento" />
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Setor:" />
+								<h:inputText id="Setor" value="#{vendaIngressoMb.vendaIngresso.setor}"
+									type="text" class="form-control" placeholder="Setor" />
+							</div>	
+							<div class="botaoSalvar">
+							<h:commandButton action="#{vendaIngressoMb.salvar}"
+								styleClass="btn btn-default" value="Salvar" />
+						</div>						
+
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
