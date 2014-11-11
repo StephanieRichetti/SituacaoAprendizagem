@@ -14,9 +14,6 @@ import br.senai.sc.hoteleclipse.entity.Contato;
 public class ContatoMb {
 	private String nome;
 	private String email;
-	private String senha;
-	private Boolean news;
-	private Integer area;
 	private String mensagem;
 	
 	public String getNome() {
@@ -31,24 +28,7 @@ public class ContatoMb {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	public Boolean getNews() {
-		return news;
-	}
-	public void setNews(Boolean news) {
-		this.news = news;
-	}
-	public Integer getArea() {
-		return area;
-	}
-	public void setArea(Integer area) {
-		this.area = area;
-	}
+	
 	public String getMensagem() {
 		return mensagem;
 	}
@@ -59,10 +39,8 @@ public class ContatoMb {
 	public void enviar(){
 		System.out.println("Nome: " + nome);
 		System.out.println("Email: " + email);
-		System.out.println("Senha: " + senha);
-		System.out.println("Área: " + area);
 		System.out.println("Mensagem: " + mensagem);
-		System.out.println("News: " + news);
+	
 	}
 }
 

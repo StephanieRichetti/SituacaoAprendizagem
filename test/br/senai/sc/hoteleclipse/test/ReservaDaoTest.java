@@ -1,7 +1,6 @@
 package br.senai.sc.hoteleclipse.test;
 
-
-	import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -20,30 +19,30 @@ import br.senai.sc.hoteleclipse.dao.ReservaDao;
 import br.senai.sc.hoteleclipse.entity.Reserva;
 import br.senai.sc.hoteleclipse.util.Util;
 
-
-	public class ReservaDaoTest {
-
+public class ReservaDaoTest {
 
 	private void resetTableReserva() {
 		String query = "truncate reserva;";
 		executeQuery(query);
-}
+	}
 
 	private void insertId1() {
 		String query = "INSERT INTO reserva(id,nomeCliente,chegada.saida,quartos,quantidadePessoas,observacao) VALUES(1,'Reserva 1','reserva')";
 		executeQuery(query);
-}
+	}
 
-		private void insertId10() {
+	private void insertId10() {
 		String query = "INSERT INTO reserva(nomeCliente,chegada,saida,quartos,quantidadePessoas,observacao) VALUES('Reserva 1','reservas reserva 1')";
 
 		for (int i = 2; i <= 10; i++)
-			query = query.concat(",('João Paulo " + i + "','25/12/2014 " + i+ "'29/12/2014" +i+ "'Luxo" +i+ "'2"+i+ "'obs"+i+")");
+			query = query.concat(",('João Paulo " + i + "','25/12/2014 " + i
+					+ "'29/12/2014" + i + "'Luxo" + i + "'2" + i + "'obs" + i
+					+ ")");
 
 		executeQuery(query);
-}
+	}
 
-		private void executeQuery(String query) {
+	private void executeQuery(String query) {
 		EntityManager em = Util.getEntityManager();
 		em.getTransaction().begin();
 
@@ -51,65 +50,65 @@ import br.senai.sc.hoteleclipse.util.Util;
 
 		em.getTransaction().commit();
 		em.close();
-}
+	}
 
+	// fim de manipulação do banco
 
-//fim de manipulação do banco
-
-@BeforeClass
+	@BeforeClass
 	public static void init() {
-	Util.initFactory();
-}
+		Util.initFactory();
+	}
 
-@AfterClass
+	@AfterClass
 	public static void finish() {
-	Util.closeFactory();
-}
+		Util.closeFactory();
+	}
 
 	private EntityManager entityManager;
 	private ReservaDao dao;
 
-@Before
+	@Before
 	public void begin() {
-	resetTableReserva();
-	entityManager = Util.getEntityManager();
-	entityManager.getTransaction().begin();
-	dao = new ReservaDao(entityManager);
-}
+		resetTableReserva();
+		entityManager = Util.getEntityManager();
+		entityManager.getTransaction().begin();
+		dao = new ReservaDao(entityManager);
+	}
 
-@After
+	@After
 	public void close() {
-	entityManager.getTransaction().commit();
-	entityManager.close();
-	entityManager = null;
-	dao = null;
-}
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		entityManager = null;
+		dao = null;
+	}
 
-@Test
+	@Test
 	public void testSalvar() {
-	Reserva reserva = new Reserva();
-	reserva.setNomeCliente("João Paulo ...");
-	//reserva.setChegada("25/12/2014");
-	//reserva.setSaida("29/12/2014");
-	reserva.setQuartos(3);
-	reserva.setObservacao("observacao");
+		Reserva reserva = new Reserva();
+		reserva.setNomeCliente("João Paulo ...");
+	//	reserva.setChegada("25/12/2014");
+	//	reserva.setSaida("29/12/2014");
+		reserva.setQuartos(3);
+		reserva.setQuantidadePessoas(6);
+		reserva.setObservacao("observacao");
 
-	dao.salvar(reserva);
-}
+		dao.salvar(reserva);
+	}
 
-@Test
+	@Test
 	public void buscarReservaPorId() {
-	insertId1();
+		insertId1();
 
-	testSalvar();
-	Reserva reserva = dao.buscarPorId(1L);
-	assertNotNull(reserva);
-}
+		testSalvar();
+		Reserva reserva = dao.buscarPorId(1L);
+		assertNotNull(reserva);
+	}
 
-@Test
+	@Test
 	public void excluirReserva1() {
-	insertId1();
-	dao.excluirReservaPorId(1L);
+		insertId1();
+		dao.excluir(1L);
 
-}
+	}
 }

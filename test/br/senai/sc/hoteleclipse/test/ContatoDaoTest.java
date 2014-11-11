@@ -17,29 +17,27 @@ import br.senai.sc.hoteleclipse.dao.ContatoDao;
 import br.senai.sc.hoteleclipse.entity.Contato;
 import br.senai.sc.hoteleclipse.util.Util;
 
+public class ContatoDaoTest {
 
-	public class ContatoDaoTest {
-	
 	private void resetTableContato() {
 		String query = "truncate contato;";
 		executeQuery(query);
-}
+	}
 
 	private void insertId1() {
 		String query = "INSERT INTO contato(id,nome,email,mensagem) VALUES(1,'Contato 1','contato')";
 		executeQuery(query);
-}
+	}
 
-		private void insertId10() {
+	private void insertId10() {
 		String query = "INSERT INTO contato(nome,email,mensagem) VALUES('Contato 1','contatos contato 1')";
 
 		for (int i = 2; i <= 10; i++)
-			query = query.concat(",('Contato " + i + "','Nome " + i
-					+ "')");
+			query = query.concat(",('Contato " + i + "','Nome " + i + "')");
 		executeQuery(query);
-}
+	}
 
-		private void executeQuery(String query) {
+	private void executeQuery(String query) {
 		EntityManager em = Util.getEntityManager();
 		em.getTransaction().begin();
 
@@ -47,71 +45,69 @@ import br.senai.sc.hoteleclipse.util.Util;
 
 		em.getTransaction().commit();
 		em.close();
-}
+	}
 
-
-@BeforeClass
+	@BeforeClass
 	public static void init() {
-	Util.initFactory();
-}
+		Util.initFactory();
+	}
 
-@AfterClass
+	@AfterClass
 	public static void finish() {
-	Util.closeFactory();
-}
+		Util.closeFactory();
+	}
 
 	private EntityManager entityManager;
 	private ContatoDao dao;
 
-@Before
+	@Before
 	public void begin() {
-	resetTableContato();
-	entityManager = Util.getEntityManager();
-	entityManager.getTransaction().begin();
-	dao = new ContatoDao(entityManager);
-}
+		resetTableContato();
+		entityManager = Util.getEntityManager();
+		entityManager.getTransaction().begin();
+		dao = new ContatoDao(entityManager);
+	}
 
-@After
+	@After
 	public void close() {
-	entityManager.getTransaction().commit();
-	entityManager.close();
-	entityManager = null;
-	dao = null;
-}
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		entityManager = null;
+		dao = null;
+	}
 
-@Test
+	@Test
 	public void testSalvar() {
-	Contato contato = new Contato();
-	contato.setNome("João Paulo ...");
-	contato.setEmail("João Paulo ...");
-	contato.setMensagem("João Paulo ...");
-	dao.salvar(contato);
-}
+		Contato contato = new Contato();
+		contato.setNome("João Paulo ...");
+		contato.setEmail("João Paulo ...");
+		contato.setMensagem("João Paulo ...");
+		dao.salvar(contato);
+	}
 
-@Test
+	@Test
 	public void buscarContatoPorId() {
-	insertId1();
+		insertId1();
 
-	testSalvar();
-	Contato contato = dao.buscarPorId(1L);
-	assertNotNull(contato);
-}
+		testSalvar();
+		Contato contato = dao.buscarPorId(1L);
+		assertNotNull(contato);
+	}
 
-@Test
+	@Test
 	public void excluirContato1() {
-	insertId1();
-	dao.excluir(1L);
+		insertId1();
+		dao.excluir(1L);
+
+	}
+
+	@Test
+	public void listarContato() {
+		insertId10();
+
+		List<Contato> contatos = dao.listar();
+
+		assertEquals(10, contatos.size());
+	}
 
 }
-
-@Test
-public void listarContato() {
-	insertId10();
-
-	List<Contato> contatos = dao.listar();
-
-	assertEquals(10, contatos.size());
-}
-
-}
-
