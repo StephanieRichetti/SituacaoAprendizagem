@@ -1,7 +1,7 @@
 $(function() {
 	$('#menu_principal li').click(function(event){
 		console.log('lick');
-		//event.preventDefault();
+		event.preventDefault();
 	});
 	if (location.href.substr(-1) == '/') {
 		$('#menu_principal li:first').addClass('active');

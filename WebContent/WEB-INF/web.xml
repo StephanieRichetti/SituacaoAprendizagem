@@ -30,4 +30,33 @@
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener>
+    <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <context-param>
+    <param-name>servidor</param-name>
+    <param-value>smtp.gmail.com</param-value>
+  </context-param>
+  <context-param>
+    <param-name>porta</param-name>
+    <param-value>587</param-value>
+  </context-param>
+  <context-param>
+    <param-name>usuario</param-name>
+    <param-value>stephanierc16@gmail.com</param-value>
+  </context-param>
+  <context-param>
+    <param-name>senha</param-name>
+    <param-value>****</param-value>
+  </context-param>
+  <context-param>
+    <param-name>tls</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>auth</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  
 </web-app>
