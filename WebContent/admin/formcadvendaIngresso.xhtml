@@ -12,40 +12,44 @@
 		<div class="corpo">
 			<div class="container_cadClientes">
 				<h1>
-					Cadastro <small>Venda Ingresso</small>
+					Cadastro <small> Venda Ingresso</small>
 				</h1>
 				<br />
 				<div class="col-md-12">
 					<h:form role="form">
 						<div class="cadVendaIngresso">
-
-							<h:panelGrid rendered="#{!empty vendaIngressoMb.vendaIngresso.ID}">
+							<h:panelGrid rendered="#{!empty vendaIngressoMb.vendaIngresso.id}">
 								<div class="form-group">
 									<h:outputLabel value="Cód:" />
 									<h:inputText styleClass="form-control" readonly="true"
-										value="#{vendaIngressoMb.vendaIngresso.ID}" />
+										value="#{vendaIngressoMb.vendaIngresso.id}" />
 								</div>
 							</h:panelGrid>
-							<h:inputHidden value="#{vendaIngressoMb.vendaIngresso.ID}" />
+							<h:inputHidden value="#{vendaIngressoMb.vendaIngresso.id}" />
+
 							<div class="form-group">
 								<h:outputLabel value="Nome:" />
 								<h:inputText id="NomeCliente" value="#{vendaIngressoMb.vendaIngresso.nomeCliente}"
 									type="text" class="form-control" placeholder="Nome" />
 							</div>
-						<div class="form-group">
+							<div class="form-group">
 								<h:outputLabel value="Data Evento:" />
-								<h:inputText id="DataEvento" value="#{vendaIngressoMb.vendaIngresso.dataEvento}"
-									type="text" class="form-control" placeholder="Data Evento" />
+								<h:inputText id="dataEvento" value="#{vendaIngressoMb.vendaIngresso.dataEvento}"
+									type="text" class="form-control" placeholder="DataEvento" />
 							</div>
+							
 							<div class="form-group">
 								<h:outputLabel value="Setor:" />
 								<h:inputText id="Setor" value="#{vendaIngressoMb.vendaIngresso.setor}"
-									type="text" class="form-control" placeholder="Setor" />
-							</div>	
-							<div class="botaoSalvar">
+									type="text" class="form-control" placeholder="setor" />
+							</div>
+							
+							
+						</div>
+						<div class="botaoSalvar">
 							<h:commandButton action="#{vendaIngressoMb.salvar}"
 								styleClass="btn btn-default" value="Salvar" />
-						</div>						
+						</div>
 
 					</h:form>
 				</div>
@@ -54,3 +58,4 @@
 	</ui:define>
 </ui:composition>
 </html>
+
