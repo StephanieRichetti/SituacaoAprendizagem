@@ -1,12 +1,14 @@
 
 .page-header {
 	width: 100%;	
+	background-color: black;
 }
 
 .header {
 	text-align: left;
 	width: 90%;
 	margin-left: 35%;
+	
 } 
 
 .header small {

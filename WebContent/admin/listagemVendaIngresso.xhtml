@@ -17,7 +17,7 @@
 				<br />
 				<h:form>
 					<h:dataTable value="{vendaIngressoMb.listaVendaIngresso}" var="listarvenda"
-						class="table table-striped">
+						class="table table-striped"/>
 					<h:column>
 						<f:facet name="heard"> Cod.</f:facet>
 						<h:outputText value="{listarvenda.ID}"/>
@@ -35,7 +35,7 @@
 						<f:facet name="heard">Setor</f:facet>
 						<h:outputText value="{listarvenda.setor}"/>
 					</h:column>
-					
+					<h:column>					
 						<f:facet name="heard"/>
 							<h:commandLink action="#{vendaIngressoMb.editar(listarvenda.ID)}"
 								styleClass="btn">
@@ -47,11 +47,12 @@
 								<span class="glyphicon glyphicon-pencil"/>
 								</h:commandLink>
 					</h:column>
-					
+					</h:form>
 					</h:dataTable>				
 				</h:form>
 			</div>
-		</div>
+			</div>
+		
 	</ui:define>
 </ui:composition>
 </html>
