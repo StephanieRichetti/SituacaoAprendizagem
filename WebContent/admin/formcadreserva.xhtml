@@ -10,7 +10,7 @@
 	<ui:define name="content">
 
 		<div class="corpo">
-			<div class="container_cadClientes">
+			<div class="container_cadReserva">
 				<h1>
 					Cadastro <small>Reserva</small>
 				</h1>
@@ -34,28 +34,46 @@
 							</div>
 							<div class="form-group">
 								<h:outputLabel value="Chegada:" />
-								<h:inputText id="Chegada" value="#{reservaMb.reserva.chegada}"
+								<input id="Chegada" value="#{reservaMb.reserva.chegada}"
 									type="date" class="form-control" placeholder="Chegada" />
 							</div>
 							<div class="form-group">
 								<h:outputLabel value="Saída:" />
-								<h:inputText id="Saida" value="#{reservaMb.reserva.saida}"
+								<input id="Saida" value="#{reservaMb.reserva.saida}"
 									type="date" class="form-control" placeholder="Saida" />
 							</div>
-							<div class="form-group">
-								<h:outputLabel value="Quartos:" />
-								<h:inputText id="Quartos" value="#{reservaMb.reserva.quartos}"
-									type="text" class="form-control" placeholder="Quartos" />
-							</div>
-							<div class="form-group">
-								<h:outputLabel value="Quantidade Pessoas:" />
-								<h:inputText id="QuantidadePessoas" value="#{reservaMb.reserva.quantidadePessoas}"
-									type="text" class="form-control" placeholder="QuantidadePessoas" />
-							</div>
+							
+							<div class="form-group" id="combobox">
+							<h:outputLabel value="Categoria Quartos:" />
+								<h:selectOneMenu value="#{reservaMb.reserva.quartos}" styleClass="form-control">
+									<f:selectItem itemValue="Classic" itemLabel="Classic" />
+									<f:selectItem itemValue="Superiores" itemLabel="Superiores" />
+									<f:selectItem itemValue="Simples" itemLabel="Simples"/>
+									<f:selectItem itemValue="Solteiro" itemLabel="Solteiro" />
+									<f:selectItem itemValue="Duplo Solteiro" itemLabel="Duplo Solteiro" />
+									<f:selectItem itemValue="Casal" itemLabel="Casal" />
+								</h:selectOneMenu>
+								</div>
+									
+							<div class="form-group" id="combobox">
+							<h:outputLabel value="Quantidade Pessoas:" />
+								<h:selectOneMenu value="#{reservaMb.reserva.quantidadePessoas}" styleClass="form-control">
+									<f:selectItem itemValue="01" itemLabel="01" />
+									<f:selectItem itemValue="02" itemLabel="02" />
+									<f:selectItem itemValue="03" itemLabel="03"/>
+									<f:selectItem itemValue="04" itemLabel="04" />
+									<f:selectItem itemValue="05" itemLabel="05" />
+									<f:selectItem itemValue="06" itemLabel="06" />
+									<f:selectItem itemValue="07" itemLabel="07" />
+									<f:selectItem itemValue="08" itemLabel="08" />
+									<f:selectItem itemValue="09" itemLabel="09" />
+									<f:selectItem itemValue="10" itemLabel="10" />
+								</h:selectOneMenu>
+								</div>
 							<div class="form-group">
 								<h:outputLabel value="Observação:" />
 								<h:inputText id="Observacao" value="#{reservaMb.reserva.observacao}"
-									type="text" class="form-control" placeholder="Observacao" />
+									type="text" class="form-control" placeholder="Observacao"/>
 							</div>
 
 						</div>

@@ -10,7 +10,8 @@
 	<ui:define name="content">
 
 		<div class="corpo">
-			<div class="container_cadClientes">
+			<div class="container_cadHospedagem">
+			
 				<h1>
 					Cadastro <small>Hospedagem</small>
 				</h1>
@@ -32,24 +33,44 @@
 								<h:inputText id="NomeCliente" value="#{hospedagemMb.hospedagem.nomeCliente}"
 									type="text" class="form-control" placeholder="Nome" />
 							</div>
-							<div class="form-group">
-								<h:outputLabel value="Categoria Quartos:" />
-								<h:inputText id="CategoriaQuartos" value="#{hospedagemMb.hospedagem.categoriaQuartos}"
-									type="text" class="form-control" placeholder="CategoriaQuartos" />
-							</div>
-							<div class="form-group">
-								<h:outputLabel value="Quantidade Pessoas:" />
-								<h:inputText id="QuantidadePessoas" value="#{hospedagemMb.hospedagem.quantidadePessoas}"
-									type="text" class="form-control" placeholder="quantidadePessoas" />
-							</div>
+							
+							<div class="form-group" id="combobox">
+							<h:outputLabel value="Categoria Quartos:" />
+								<h:selectOneMenu value="#{hospedagemMb.hospedagem.categoriaQuartos}" styleClass="form-control">
+									<f:selectItem itemValue="Classic" itemLabel="Classic" />
+									<f:selectItem itemValue="Superiores" itemLabel="Superiores" />
+									<f:selectItem itemValue="Simples" itemLabel="Simples"/>
+									<f:selectItem itemValue="Solteiro" itemLabel="Solteiro" />
+									<f:selectItem itemValue="Duplo Solteiro" itemLabel="Duplo Solteiro" />
+									<f:selectItem itemValue="Casal" itemLabel="Casal" />
+								</h:selectOneMenu>
+								</div>
+									
+							<div class="form-group" id="combobox">
+							<h:outputLabel value="Quantidade Pessoas:" />
+								<h:selectOneMenu value="#{hospedagemMb.hospedagem.quantidadePessoas}" styleClass="form-control">
+									<f:selectItem itemValue="01" itemLabel="01" />
+									<f:selectItem itemValue="02" itemLabel="02" />
+									<f:selectItem itemValue="03" itemLabel="03"/>
+									<f:selectItem itemValue="04" itemLabel="04" />
+									<f:selectItem itemValue="05" itemLabel="05" />
+									<f:selectItem itemValue="06" itemLabel="06" />
+									<f:selectItem itemValue="07" itemLabel="07" />
+									<f:selectItem itemValue="08" itemLabel="08" />
+									<f:selectItem itemValue="09" itemLabel="09" />
+									<f:selectItem itemValue="10" itemLabel="10" />
+								</h:selectOneMenu>
+								</div>
+										
 							<div class="form-group">
 								<h:outputLabel value="Entrada:" />
-								<h:inputText id="Entrada" value="#{hospedagemMb.hospedagem.entrada}"
-									type="text" class="form-control" placeholder="Entrada" />
-							</div><div class="form-group">
-								<h:outputLabel value="Saida:" />
-								<h:inputText id="Saida" value="#{hospedagemMb.hospedagem.saida}"
-									type="text" class="form-control" placeholder="saida" />
+								<input id="Entrada" value="#{hospedagemMb.hospedagem.entrada}"
+									type="date" class="form-control" placeholder="Entrada" />
+							</div>
+							<div class="form-group">
+								<h:outputLabel value="Saída:" />
+								<input id="Saida" value="#{hospedagemMb.hospedagem.saida}"
+									type="date" class="form-control" placeholder="Saida" />
 							</div>
 							
 							
@@ -63,6 +84,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</ui:define>
 </ui:composition>
 </html>
