@@ -16,43 +16,43 @@
 				</h1>
 				<br />
 				<h:form>
-					<h:dataTable value="{vendaIngressoMb.listaVendaIngresso}" var="listarvenda"
-						class="table table-striped"/>
-					<h:column>
-						<f:facet name="heard"> Cod.</f:facet>
-						<h:outputText value="{listarvenda.ID}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="heard">Nome</f:facet>
-						<h:outputText value="{listarvenda.nomeCliente}"/>
-					</h:column>
-					
-					<h:column>
-						<f:facet name="heard">Data</f:facet>
-						<h:outputText value="{listarvenda.dataEvento}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="heard">Setor</f:facet>
-						<h:outputText value="{listarvenda.setor}"/>
-					</h:column>
-					<h:column>					
-						<f:facet name="heard"/>
-							<h:commandLink action="#{vendaIngressoMb.editar(listarvenda.ID)}"
+					<h:dataTable value="#{vendaingressoMb.listaVendaIngresso}" var="listarVendaIngresso"
+						class="table table-striped">
+						<h:column>
+							<f:facet name="header">Cód.</f:facet>
+							<h:outputText value="#{listarVendaIngresso.ID}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{listarVendaIngresso.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">DataEvento</f:facet>
+							<h:outputText value="#{listarVendaIngresso.dataEvento}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Setor</f:facet>
+							<h:outputText value="#{listarVendaIngresso.setor}" />
+						</h:column>
+									
+						<h:column>
+							<f:facet name="header"/>
+							<h:commandLink action="#{vendaIngressoMb.editar(listarVendaIngresso.ID)}"
 								styleClass="btn">
 								<span class="glyphicon glyphicon-pencil"/>
-								</h:commandLink>
-						
-							<h:commandLink action="#{vendaIngressoMb.excluir(listarvenda.ID)}"
+							</h:commandLink>	
+							<h:commandLink action="#{vendaIngressoMb.excluir(listarVendaIngresso.ID)}"
 								styleClass="btn">
-								<span class="glyphicon glyphicon-pencil"/>
-								</h:commandLink>
-					</h:column>
-					</h:form>
-					</h:dataTable>				
+								<span class="glyphicon glyphicon-trash"/>
+							</h:commandLink>
+						</h:column> 
+					</h:dataTable>
+
 				</h:form>
 			</div>
-			</div>
-		
+		</div>
 	</ui:define>
 </ui:composition>
+
+
 </html>

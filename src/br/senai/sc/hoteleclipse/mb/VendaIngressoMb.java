@@ -1,21 +1,22 @@
 package br.senai.sc.hoteleclipse.mb;
 
-import java.sql.Date;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
-import javax.persistence.EntityManager;
-
+import javax.annotation.PostConstruct;
 import br.senai.sc.hoteleclipse.dao.VendaIngressoDao;
-import br.senai.sc.hoteleclipse.entity.Hospedagem;
 import br.senai.sc.hoteleclipse.entity.VendaIngresso;
 
 @ManagedBean
 public class VendaIngressoMb {
-
+	
 	private VendaIngresso vendaIngresso;
-	private VendaIngressoDao dao;
+	private VendaIngressoDao vendaDao;
 	private List<VendaIngresso> listaVendaIngresso;
+	
+	
 
 	public VendaIngresso getVendaIngresso() {
 		return vendaIngresso;
@@ -25,35 +26,46 @@ public class VendaIngressoMb {
 		this.vendaIngresso = vendaIngresso;
 	}
 
-	public VendaIngressoDao getDao() {
-		return dao;
+	public VendaIngressoDao getVendaDao() {
+		return vendaDao;
 	}
 
-	public void setDao(VendaIngressoDao dao) {
-		this.dao = dao;
-	}
-
-	public List<VendaIngresso> getListaVendaIngresso() {
-		return listaVendaIngresso;
+	public void setVendaDao(VendaIngressoDao vendaDao) {
+		this.vendaDao = vendaDao;
 	}
 
 	public void setListaVendaIngresso(List<VendaIngresso> listaVendaIngresso) {
 		this.listaVendaIngresso = listaVendaIngresso;
 	}
 
-	public String salvar() {
-		dao.salvar(vendaIngresso);
-		return "listagemvendaIngresso";
+	@PostConstruct
+	public void init(){
+		vendaDao = new VendaIngressoDao();
+		vendaIngresso = new VendaIngresso();
+	}
+	
+	
+	public List<VendaIngresso> getListaVendaIngresso() {
+		if (listaVendaIngresso == null)
+			listaVendaIngresso = vendaDao.listar();
+		return listaVendaIngresso;
 	}
 
-	public String editar(Long ID) {
-		vendaIngresso = dao.buscarPorId(ID);
-		return "formcadvendaIngresso";
-	}
-
-	public String excluir(Long ID) {
-		vendaIngresso = dao.excluir(ID);
+	
+	public String salvar() throws IOException {
+		vendaDao.salvar(vendaIngresso);
 		return "listagemVendaIngresso";
 	}
 
+	public String editar(String id){
+		vendaIngresso = vendaDao.buscarPorId(Long.parseLong(id));
+		return "formcadvendaIngresso";
+	}
+	
+	public String excluir(String id){
+		VendaIngresso vendaIngressoremovido = vendaDao.excluir(Long.parseLong(id));
+		
+		listaVendaIngresso = null;
+		return "listagemVendaIngresso";
+	}
 }

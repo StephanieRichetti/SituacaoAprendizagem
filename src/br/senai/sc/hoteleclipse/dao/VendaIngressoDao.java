@@ -35,9 +35,10 @@ import br.senai.sc.hoteleclipse.util.Util;
 			return entityManager.find(VendaIngresso.class, id);
 		}
 
-		public void excluir(Long id) {
+		public VendaIngresso excluir(Long id) {
 			VendaIngresso vendaIngresso = entityManager.getReference(VendaIngresso.class, id);
 			entityManager.remove(vendaIngresso);
+			return vendaIngresso;
 		}
 
 	}
