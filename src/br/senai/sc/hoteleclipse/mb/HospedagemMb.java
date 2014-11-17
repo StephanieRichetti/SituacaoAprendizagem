@@ -10,9 +10,12 @@ import br.senai.sc.hoteleclipse.dao.HospedagemDao;
 import br.senai.sc.hoteleclipse.entity.Hospedagem;
 import br.senai.sc.hoteleclipse.entity.Reserva;
 
+
+
 @ManagedBean
 public class HospedagemMb {
 
+	
 	private Hospedagem hospedagem;
 	private HospedagemDao dao;
 	private List<Hospedagem> listaHospedagem;
@@ -30,29 +33,28 @@ public class HospedagemMb {
 	public void setDao(HospedagemDao dao) {
 		this.dao = dao;
 	}
-	public List<Hospedagem> getListaHospedagem() {		
-			if(listaHospedagem == null){
-				listaHospedagem = dao.listar();
-			}
-			return listaHospedagem;
-		}
-		
+
+	public List<Hospedagem> getListaHospedagem() {
+		return listaHospedagem;
+	}
 	public void setListaHospedagem(List<Hospedagem> listaHospedagem) {
 		this.listaHospedagem = listaHospedagem;
 	}
 	
-	public String salvar() {
-		dao.salvar(hospedagem);
-		return "listagemHospedagem";
-	}
 
-	public String editar(Long ID){
-		hospedagem = dao.buscarPorId(ID);
-		return "formcadhospedagem";
-	}
-	
-	public String excluir(Long ID){
-	   hospedagem = dao.excluir(ID);
-		return "listagemHospedagem";
-	}
+
+public String salvar() {
+	dao.salvar(hospedagem);
+	return "listagemhospedagem";
+}
+
+public String editar(Long ID){
+	hospedagem = dao.buscarPorId(ID);
+	return "formcadhospedagem";
+}
+
+public String excluir(Long ID){
+	hospedagem = dao.remove(ID);
+	return "listagemhospedagema";
+}
 }
