@@ -19,11 +19,12 @@
 				<div class="col-md-12">
 					<h:form role="form">
 						<div class="cadHospedagem">
-							<h:panelGrid rendered="#{!empty hospedagemMb.hospedagem.id}">
+						
+						<h:panelGrid rendered="#{!empty hospedagemMb.hospedagem.id}">
 								<div class="form-group">
 									<h:outputLabel value="Cód:" />
 									<h:inputText styleClass="form-control" readonly="true"
-										value="#{reservaMb.reserva.id}" />
+										value="#{hospedagemMb.hospedagem.id}" />
 								</div>
 							</h:panelGrid>
 							<h:inputHidden value="#{hospedagemMb.hospedagem.id}" />
@@ -72,8 +73,7 @@
 								<input id="Saida" value="#{hospedagemMb.hospedagem.saida}"
 									type="date" class="form-control" placeholder="Saida" />
 							</div>
-							
-							
+										
 						</div>
 						<div class="botaoSalvar">
 							<h:commandButton action="#{hospedagemMb.salvar}"

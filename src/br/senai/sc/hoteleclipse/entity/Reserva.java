@@ -16,10 +16,11 @@ public class Reserva {
 	@Column
 	private String nomeCliente;
 	@Column
-	private Date chegada;
+	private Date entrada;
 	private Date saida;
 	private Integer quartos;
 	private Integer quantidadePessoas;
+	private String categoriaQuartos;
 	private String observacao;
 	
 
@@ -39,12 +40,12 @@ public class Reserva {
 		this.observacao = observacao;
 	}
 
-	public Date getChegada() {
-		return chegada;
+	public Date getEntrada() {
+		return entrada;
 	}
 
-	public void setChegada(Date chegada) {
-		this.chegada = chegada;
+	public void setEntrada(Date entrada) {
+		this.entrada = entrada;
 	}
 
 	public Date getSaida() {
@@ -77,6 +78,14 @@ public class Reserva {
 
 	public void setQuantidadePessoas(Integer quantidadePessoas) {
 		this.quantidadePessoas = quantidadePessoas;
+	}
+
+	public String getCategoriaQuartos() {
+		return categoriaQuartos;
+	}
+
+	public void setCategoriaQuartos(String categoriaQuartos) {
+		this.categoriaQuartos = categoriaQuartos;
 	}
 
 

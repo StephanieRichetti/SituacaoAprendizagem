@@ -16,54 +16,55 @@
 				</h1>
 				<br />
 				<h:form>
-					<h:dataTable value="{reservaMb.listaReserva}" var="listarres"
+					<h:dataTable value="#{reservaMb.listaReserva}" var="listarreserva"
 						class="table table-striped">
-					<h:column>
-						<f:facet name="heard"> Cod.</f:facet>
-						<h:outputText value="{listarres.ID}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="heard">Nome</f:facet>
-						<h:outputText value="{listarres.nomeCliente}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="heard">Chegada</f:facet>
-						<h:outputText value="{listarres.chegada}"/>
-					</h:column>
 						<h:column>
-						<f:facet name="heard">Saida</f:facet>
-						<h:outputText value="{listarres.saida}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="heard">Quartos</f:facet>
-						<h:outputText value="{listarres.quartos}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="heard">Quantidade Pessoas</f:facet>
-						<h:outputText value="{listarres.quantidadePessoas}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="heard">Observação </f:facet>
-						<h:outputText value="{listarres.observacao}"/>
-					</h:column>
-					
-					<h:column>
-						<f:facet name="heard"/>
-							<h:commandLink action="#{reservaMb.editar(listarres.ID)}"
+							<f:facet name="header">Cód.</f:facet>
+							<h:outputText value="#{listarreserva.ID}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{listarreserva.nomeCliente}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Categoria</f:facet>
+							<h:outputText value="#{listarreserva.categoriaQuartos}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Quantidade Pessoas</f:facet>
+							<h:outputText value="#{listarreserva.quantidadePessoas}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Entrada</f:facet>
+							<h:outputText value="#{listarreserva.entrada}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Saida</f:facet>
+							<h:outputText value="#{listarreserva.saida}" />
+						</h:column>
+							<h:column>
+							<f:facet name="header">Observação</f:facet>
+							<h:outputText value="#{listarreserva.observacao}" />
+						</h:column>
+																		
+						<h:column>
+							<f:facet name="header"/>
+							<h:commandLink action="#{reservaMb.editar(listarreserva.ID)}"
 								styleClass="btn">
 								<span class="glyphicon glyphicon-pencil"/>
-								</h:commandLink>
-						
-							<h:commandLink action="#{reservaMb.excluir(listarres.ID)}"
+							</h:commandLink>	
+							<h:commandLink action="#{reservaMb.excluir(llistarreserva.ID)}"
 								styleClass="btn">
-								<span class="glyphicon glyphicon-pencil"/>
-								</h:commandLink>
-					</h:column>
-					
-					</h:dataTable>				
-				</h:form>
+								<span class="glyphicon glyphicon-trash"/>
+							</h:commandLink>
+						</h:column> 
+					</h:dataTable>
+
+				</h:form>			
 			</div>
 		</div>
 	</ui:define>
 </ui:composition>
+
+
 </html>

@@ -4,43 +4,39 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Hospedagem {
 
 	@Id
-	private Integer id;
+	@GeneratedValue
+	private Long id;
 	@Column
 	private String nomeCliente;
-	private String categoriaQuartos;
 	@Column
-	private Integer quantidadePessoas;
 	private Date entrada;
-	private Date saída;
+	private Date saida;
+	private Integer quartos;
+	private Integer quantidadePessoas;
+	private String observacao;
+	
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getCategoriaQuartos() {
-		return categoriaQuartos;
+	public String getObservacao() {
+		return observacao;
 	}
 
-	public void setCategoriaQuartos(String categoriaQuartos) {
-		this.categoriaQuartos = categoriaQuartos;
-	}
-
-	public Integer getQuantidadePessoas() {
-		return quantidadePessoas;
-	}
-
-	public void setQuantidadePessoas(Integer quantidadePessoas) {
-		this.quantidadePessoas = quantidadePessoas;
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	public Date getEntrada() {
@@ -51,12 +47,20 @@ public class Hospedagem {
 		this.entrada = entrada;
 	}
 
-	public Date getSaída() {
-		return saída;
+	public Date getSaida() {
+		return saida;
 	}
 
-	public void setSaída(Date saída) {
-		this.saída = saída;
+	public void setSaida(Date saida) {
+		this.saida = saida;
+	}
+
+	public Integer getQuartos() {
+		return quartos;
+	}
+
+	public void setQuartos(Integer quartos) {
+		this.quartos = quartos;
 	}
 
 	public String getNomeCliente() {
@@ -66,5 +70,14 @@ public class Hospedagem {
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
+
+	public Integer getQuantidadePessoas() {
+		return quantidadePessoas;
+	}
+
+	public void setQuantidadePessoas(Integer quantidadePessoas) {
+		this.quantidadePessoas = quantidadePessoas;
+	}
+
 
 }

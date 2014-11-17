@@ -16,43 +16,43 @@ public class HospedagemMb {
 	private Hospedagem hospedagem;
 	private HospedagemDao dao;
 	private List<Hospedagem> listaHospedagem;
-
+	
+	
 	public Hospedagem getHospedagem() {
 		return hospedagem;
 	}
-
 	public void setHospedagem(Hospedagem hospedagem) {
 		this.hospedagem = hospedagem;
 	}
-
 	public HospedagemDao getDao() {
 		return dao;
 	}
-
 	public void setDao(HospedagemDao dao) {
 		this.dao = dao;
 	}
-
-	public List<Hospedagem> getListaHospedagem() {
-		return listaHospedagem;
-	}
-
+	public List<Hospedagem> getListaHospedagem() {		
+			if(listaHospedagem == null){
+				listaHospedagem = dao.listar();
+			}
+			return listaHospedagem;
+		}
+		
 	public void setListaHospedagem(List<Hospedagem> listaHospedagem) {
 		this.listaHospedagem = listaHospedagem;
 	}
-
+	
 	public String salvar() {
 		dao.salvar(hospedagem);
 		return "listagemHospedagem";
 	}
 
-	public String editar(Long ID) {
+	public String editar(Long ID){
 		hospedagem = dao.buscarPorId(ID);
 		return "formcadhospedagem";
 	}
-
-	public String excluir(Long ID) {
-		hospedagem = dao.excluir(ID);
+	
+	public String excluir(Long ID){
+	   hospedagem = dao.excluir(ID);
 		return "listagemHospedagem";
 	}
 }
