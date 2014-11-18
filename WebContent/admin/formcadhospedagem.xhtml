@@ -66,6 +66,22 @@
 								<input id="Entrada" value="#{hospedagemMb.hospedagem.entrada}"
 									type="date" class="form-control" placeholder="Entrada" />
 							</div>
+							
+							<div class="form-group">
+						<h:outputLabel value="Entrada" /> 
+						<h:inputText value="#{hospedagemMb.hospedagem.entrada}" styleClass="form-control">
+							<f:passThroughAttribute name="type" value="datetime-local"/>
+							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
+						</h:inputText>
+					</div>
+							
+								<div class="form-group">
+						<h:outputLabel value="Saida" /> 
+						<h:inputText value="#{hospedagemMb.hospedagem.saida}" styleClass="form-control">
+							<f:passThroughAttribute name="type" value="datetime-local"/>
+							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
+						</h:inputText>
+					</div>
 							<div class="form-group">
 								<h:outputLabel value="Saida:" />
 								<input id="Saida" value="#{hospedagemMb.hospedagem.saida}"
@@ -81,7 +97,7 @@
 						
 					
 						<div class="limpar">
-						<input type="reset" value="Restaurar" />
+						<h:commandButton styleClass="btn btn-default"  type="reset" value="Limpar" />
 					</div>
 
 					</h:form>
