@@ -18,14 +18,14 @@
 				<div class="col-md-12">
 					<h:form role="form">
 						<div class="cadHospedagem">
-							<h:panelGrid rendered="#{!empty hospedagemMb.hospedagem.id}">
+							<h:panelGrid rendered="#{!empty hospedagemMb.hospedagem.ID}">
 								<div class="form-group">
 									<h:outputLabel value="Cód:" />
 									<h:inputText styleClass="form-control" readonly="true"
-										value="#{hospedagemMb.hospedagem.id}" />
+										value="#{hospedagemMb.hospedagem.ID}" />
 								</div>
 							</h:panelGrid>
-							<h:inputHidden value="#{hospedagemMb.hospedagem.id}" />
+							<h:inputHidden value="#{hospedagemMb.hospedagem.ID}" />
 
 							<div class="form-group">
 								<h:outputLabel value="Nome:" />

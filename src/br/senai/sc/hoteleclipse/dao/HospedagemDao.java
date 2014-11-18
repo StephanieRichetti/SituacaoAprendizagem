@@ -11,6 +11,7 @@ import br.senai.sc.hoteleclipse.util.Util;
 
 public class HospedagemDao {
 	
+
 	private EntityManager entityManager;
 
 	public HospedagemDao() {
@@ -26,19 +27,29 @@ public class HospedagemDao {
 		return query.getResultList();
 	}
 
-	public void salvar(Hospedagem hospedagem) {
-		entityManager.merge(hospedagem);
+	public Hospedagem salvar(Hospedagem hospedagem) {
+		try {
+			if (hospedagem.getId() == null) {
+				entityManager.persist(hospedagem);
+			} else {
+				entityManager.merge(hospedagem);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return hospedagem;
 	}
 
 	public Hospedagem buscarPorId(Long id) {
 		return entityManager.find(Hospedagem.class, id);
 	}
 
-	public void excluir(Long id) {
-		Hospedagem hospedagem = entityManager.getReference(Hospedagem.class, id);
+	public Hospedagem excluir(Long ID) {
+		Hospedagem hospedagem = entityManager.getReference(Hospedagem.class, ID);
 		entityManager.remove(hospedagem);
+		return hospedagem;
+		
 	}
+	
 
 }
-
-

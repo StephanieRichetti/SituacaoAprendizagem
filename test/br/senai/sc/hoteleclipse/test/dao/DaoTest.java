@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import br.senai.sc.hoteleclipse.dao.ClienteDao;
 import br.senai.sc.hoteleclipse.dao.ContatoDao;
+import br.senai.sc.hoteleclipse.dao.HospedagemDao;
 import br.senai.sc.hoteleclipse.dao.ReservaDao;
 import br.senai.sc.hoteleclipse.test.DBUnitTest;
 import br.senai.sc.hoteleclipse.util.Util;
@@ -46,6 +47,13 @@ public class DaoTest extends DBUnitTest {
 	@Test
 	public void testReservaDao() {
 		ReservaDao dao = new ReservaDao(entityManager);
+		assertNotNull("Objeto de acesso a dados do objeto Reserva esta nulo", dao);
+		dao = null;
+	}
+	
+	@Test
+	public void testHospedagemDao() {
+		HospedagemDao dao = new HospedagemDao(entityManager);
 		assertNotNull("Objeto de acesso a dados do objeto Reserva esta nulo", dao);
 		dao = null;
 	}

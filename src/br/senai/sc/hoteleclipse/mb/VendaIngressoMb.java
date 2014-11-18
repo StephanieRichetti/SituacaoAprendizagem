@@ -1,11 +1,11 @@
 package br.senai.sc.hoteleclipse.mb;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
+
 import br.senai.sc.hoteleclipse.dao.VendaIngressoDao;
 import br.senai.sc.hoteleclipse.entity.VendaIngresso;
 

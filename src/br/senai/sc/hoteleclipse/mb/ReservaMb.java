@@ -1,10 +1,8 @@
 package br.senai.sc.hoteleclipse.mb;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.persistence.EntityManager;
 
 import br.senai.sc.hoteleclipse.dao.ReservaDao;
 import br.senai.sc.hoteleclipse.entity.Reserva;
