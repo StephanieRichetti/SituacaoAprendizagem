@@ -3,8 +3,8 @@ package br.senai.sc.hoteleclipse.mb;
 import java.io.IOException;
 import java.util.List;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 
 import br.senai.sc.hoteleclipse.dao.VendaIngressoDao;
 import br.senai.sc.hoteleclipse.entity.VendaIngresso;
@@ -13,7 +13,7 @@ import br.senai.sc.hoteleclipse.entity.VendaIngresso;
 public class VendaIngressoMb {
 	
 	private VendaIngresso vendaIngresso;
-	private VendaIngressoDao vendaDao;
+	private VendaIngressoDao vendaIngressoDao;
 	private List<VendaIngresso> listaVendaIngresso;
 	
 	
@@ -27,11 +27,11 @@ public class VendaIngressoMb {
 	}
 
 	public VendaIngressoDao getVendaDao() {
-		return vendaDao;
+		return vendaIngressoDao;
 	}
 
 	public void setVendaDao(VendaIngressoDao vendaDao) {
-		this.vendaDao = vendaDao;
+		this.vendaIngressoDao = vendaIngressoDao;
 	}
 
 	public void setListaVendaIngresso(List<VendaIngresso> listaVendaIngresso) {
@@ -40,30 +40,30 @@ public class VendaIngressoMb {
 
 	@PostConstruct
 	public void init(){
-		vendaDao = new VendaIngressoDao();
+		vendaIngressoDao = new VendaIngressoDao();
 		vendaIngresso = new VendaIngresso();
 	}
 	
 	
 	public List<VendaIngresso> getListaVendaIngresso() {
 		if (listaVendaIngresso == null)
-			listaVendaIngresso = vendaDao.listar();
+			listaVendaIngresso = vendaIngressoDao.listar();
 		return listaVendaIngresso;
 	}
 
 	
 	public String salvar() throws IOException {
-		vendaDao.salvar(vendaIngresso);
+		vendaIngressoDao.salvar(vendaIngresso);
 		return "listagemVendaIngresso";
 	}
 
 	public String editar(String id){
-		vendaIngresso = vendaDao.buscarPorId(Long.parseLong(id));
+		vendaIngresso = vendaIngressoDao.buscarPorId(Long.parseLong(id));
 		return "formcadvendaIngresso";
 	}
 	
 	public String excluir(String id){
-		VendaIngresso vendaIngressoremovido = vendaDao.excluir(Long.parseLong(id));
+		VendaIngresso vendaIngressoremovido = vendaIngressoDao.excluir(Long.parseLong(id));
 		
 		listaVendaIngresso = null;
 		return "listagemVendaIngresso";

@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
-import br.senai.sc.hoteleclipse.entity.Hospedagem;
 import br.senai.sc.hoteleclipse.entity.VendaIngresso;
 import br.senai.sc.hoteleclipse.util.Util;
 

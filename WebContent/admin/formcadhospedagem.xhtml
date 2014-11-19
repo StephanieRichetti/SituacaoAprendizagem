@@ -18,18 +18,18 @@
 				<div class="col-md-12">
 					<h:form role="form">
 						<div class="cadHospedagem">
-							<h:panelGrid rendered="#{!empty hospedagemMb.hospedagem.ID}">
+							<h:panelGrid rendered="#{!empty hospedagemMb.hospedagem.id}">
 								<div class="form-group">
 									<h:outputLabel value="Cód:" />
 									<h:inputText styleClass="form-control" readonly="true"
-										value="#{hospedagemMb.hospedagem.ID}" />
+										value="#{hospedagemMb.hospedagem.id}" />
 								</div>
 							</h:panelGrid>
-							<h:inputHidden value="#{hospedagemMb.hospedagem.ID}" />
+							<h:inputHidden value="#{hospedagemMb.hospedagem.id}" />
 
 							<div class="form-group">
 								<h:outputLabel value="Nome:" />
-								<h:inputText id="NomeCliente" value="#{hospedagemMb.hospedagem.nomeCliente}"
+								<h:inputText id="Nome" value="#{hospedagemMb.hospedagem.nome}"
 									type="text" class="form-control" placeholder="Nome" />
 							</div>
 							
@@ -66,22 +66,6 @@
 								<input id="Entrada" value="#{hospedagemMb.hospedagem.entrada}"
 									type="date" class="form-control" placeholder="Entrada" />
 							</div>
-							
-							<div class="form-group">
-						<h:outputLabel value="Entrada" /> 
-						<h:inputText value="#{hospedagemMb.hospedagem.entrada}" styleClass="form-control">
-							<f:passThroughAttribute name="type" value="datetime-local"/>
-							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
-						</h:inputText>
-					</div>
-							
-								<div class="form-group">
-						<h:outputLabel value="Saida" /> 
-						<h:inputText value="#{hospedagemMb.hospedagem.saida}" styleClass="form-control">
-							<f:passThroughAttribute name="type" value="datetime-local"/>
-							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
-						</h:inputText>
-					</div>
 							<div class="form-group">
 								<h:outputLabel value="Saida:" />
 								<input id="Saida" value="#{hospedagemMb.hospedagem.saida}"
@@ -90,14 +74,14 @@
 							
 							
 						</div>
-						<div class="botaoSalvar">
-							<h:commandButton action="#{hospedagemMb.salvar}"
+						<div class="Salvar">
+						<h:commandButton action="#{hospedagemMb.salvar}"
 								styleClass="btn btn-default" value="Salvar" />
 						</div>
 						
 					
 						<div class="limpar">
-						<h:commandButton styleClass="btn btn-default"  type="reset" value="Limpar" />
+						<input type="reset" value="Restaurar" />
 					</div>
 
 					</h:form>
@@ -108,4 +92,3 @@
 	</ui:define>
 </ui:composition>
 </html>
-

@@ -4,13 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import br.senai.sc.hoteleclipse.entity.Hospedagem;
-import br.senai.sc.hoteleclipse.entity.Reserva;
 import br.senai.sc.hoteleclipse.util.Util;
 
 public class HospedagemDao {
-	
 
 	private EntityManager entityManager;
 
@@ -44,12 +41,9 @@ public class HospedagemDao {
 		return entityManager.find(Hospedagem.class, id);
 	}
 
-	public Hospedagem excluir(Long ID) {
-		Hospedagem hospedagem = entityManager.getReference(Hospedagem.class, ID);
+	public void excluir(Long id) {
+		Hospedagem hospedagem = entityManager.getReference(Hospedagem.class, id);
 		entityManager.remove(hospedagem);
-		return hospedagem;
-		
 	}
-	
 
 }

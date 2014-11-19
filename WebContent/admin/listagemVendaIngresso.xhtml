@@ -16,32 +16,32 @@
 				</h1>
 				<br />
 				<h:form>
-					<h:dataTable value="#{vendaingressoMb.listaVendaIngresso}" var="listarVendaIngresso"
+					<h:dataTable value="#{vendaingressoMb.listaVendaIngresso}" var="VendaIngresso"
 						class="table table-striped">
 						<h:column>
 							<f:facet name="header">Cód.</f:facet>
-							<h:outputText value="#{listarVendaIngresso.ID}" />
+							<h:outputText value="#{VendaIngresso.ID}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Nome</f:facet>
-							<h:outputText value="#{listarVendaIngresso.nome}" />
+							<h:outputText value="#{VendaIngresso.nome}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">DataEvento</f:facet>
-							<h:outputText value="#{listarVendaIngresso.dataEvento}" />
+							<h:outputText value="#{VendaIngresso.dataEvento}" />
 						</h:column>
 						<h:column>
 							<f:facet name="header">Setor</f:facet>
-							<h:outputText value="#{listarVendaIngresso.setor}" />
+							<h:outputText value="#{VendaIngresso.setor}" />
 						</h:column>
 									
 						<h:column>
 							<f:facet name="header"/>
-							<h:commandLink action="#{vendaIngressoMb.editar(listarVendaIngresso.ID)}"
+							<h:commandLink action="#{vendaIngressoMb.editar(VendaIngresso.ID)}"
 								styleClass="btn">
 								<span class="glyphicon glyphicon-pencil"/>
 							</h:commandLink>	
-							<h:commandLink action="#{vendaIngressoMb.excluir(listarVendaIngresso.ID)}"
+							<h:commandLink action="#{vendaIngressoMb.excluir(VendaIngresso.ID)}"
 								styleClass="btn">
 								<span class="glyphicon glyphicon-trash"/>
 							</h:commandLink>
