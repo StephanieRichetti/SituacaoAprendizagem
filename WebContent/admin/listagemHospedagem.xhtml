@@ -44,18 +44,20 @@
 							<f:facet name="header">Saida</f:facet>
 							<h:outputText value="#{hospedagem.saida}" />
 						</h:column>
+						
 						<h:column>
 							<f:facet name="header"/>
-							<h:commandLink action="#{hospedagemMb.editar(hospedagem.ID)}" styleClass="btn">							
-							<span class="glyphicon glyphicon-pencil"/>
+							<h:commandLink action="#{hospedagemMb.editar(hospedagem.ID)}"
+								styleClass="btn">
+								<span class="glyphicon glyphicon-pencil"/>
 							</h:commandLink>	
 							<h:commandLink action="#{hospedagemMb.excluir(hospedagem.ID)}"
 								styleClass="btn">
 								<span class="glyphicon glyphicon-trash"/>
 							</h:commandLink>
 						</h:column> 
+						
 				</h:dataTable>
-
 			</div>
 		</div>
 	</ui:define>
